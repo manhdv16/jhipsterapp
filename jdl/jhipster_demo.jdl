@@ -1,0 +1,22 @@
+entity Product {
+    name String required
+    price BigDecimal required min(0)
+    description String
+    itemSize Size required
+    image ImageBlob
+}
+enum Size {
+    S, M, L, XL, XXL
+}
+entity ProductCategory {
+    name String required
+    description String
+}
+
+relationship OneToMany {
+    ProductCategory{product} to Product
+}
+
+service Product, ProductCategory with serviceClass
+paginate Product, ProductCategory with pagination
+dto * with mapstruct

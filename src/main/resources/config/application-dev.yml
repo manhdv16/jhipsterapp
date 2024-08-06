@@ -21,6 +21,18 @@ logging:
     com.dvm.jhipsterapp: DEBUG
 
 spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+    consumer:
+      group-id: group_id_1
+      auto-offset-reset: earliest
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
   devtools:
     restart:
       enabled: true
@@ -104,3 +116,7 @@ jhipster:
 # ===================================================================
 
 # application:
+config:
+  redis:
+    host: localhost
+    port: 6379
